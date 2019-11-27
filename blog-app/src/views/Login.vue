@@ -1,11 +1,11 @@
 <template>
-  <div id="login" v-title data-title="登录 - For Fun">
+  <div id="login" v-title data-title="登录">
     <!--<video preload="auto" class="me-video-player" autoplay="autoplay" loop="loop">
           <source src="../../static/vedio/sea.mp4" type="video/mp4">
       </video>-->
 
     <div class="me-login-box me-login-box-radius">
-      <h1>ForFun 登录</h1>
+      <h1>登录</h1>
 
       <el-form ref="userForm" :model="userForm" :rules="rules">
         <el-form-item prop="account">
@@ -21,13 +21,13 @@
         </el-form-item>
       </el-form>
 
-      <div class="me-login-design">
-        <p>Designed by
-          <strong>
-            <router-link to="/" class="me-login-design-color">ForFun</router-link>
-          </strong>
-        </p>
-      </div>
+<!--      <div class="me-login-design">-->
+<!--        <p>Designed by-->
+<!--          <strong>-->
+<!--            <router-link to="/" class="me-login-design-color">ForFun</router-link>-->
+<!--          </strong>-->
+<!--        </p>-->
+<!--      </div>-->
 
     </div>
   </div>

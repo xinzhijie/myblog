@@ -1,5 +1,5 @@
 <template>
-  <div v-title data-title="ForFun Find Yourself">
+  <div v-title data-title="欢迎欢迎">
     <el-container>
 
       <el-main class="me-articles">

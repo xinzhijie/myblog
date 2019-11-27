@@ -2,8 +2,18 @@
   <div id="write" v-title :data-title="title">
     <el-container>
       <base-header :simple=true>
-        <el-col :span="4" :offset="2">
-          <div class="me-write-info">写文章</div>
+        <el-col :span="6" :offset="0">
+          <div class="me-write-info">
+            <div class="me-write-title">
+              <el-input resize="none"
+                        autosize
+                        v-model="articleForm.title"
+                        placeholder="请输入标题"
+                        >
+              </el-input>
+
+            </div>
+          </div>
         </el-col>
         <el-col :span="4" :offset="6">
           <div class="me-write-btn">
@@ -15,16 +25,16 @@
 
       <el-container class="me-area me-write-box">
         <el-main class="me-write-main">
-          <div class="me-write-title">
-            <el-input resize="none"
-                      type="textarea"
-                      autosize
-                      v-model="articleForm.title"
-                      placeholder="请输入标题"
-                      class="me-write-input">
-            </el-input>
+<!--          <div class="me-write-title">-->
+<!--            <el-input resize="none"-->
+<!--                      type="textarea"-->
+<!--                      autosize-->
+<!--                      v-model="articleForm.title"-->
+<!--                      placeholder="请输入标题"-->
+<!--                      class="me-write-input">-->
+<!--            </el-input>-->
 
-          </div>
+<!--          </div>-->
           <div id="placeholder" style="visibility: hidden;height: 89px;display: none;"></div>
           <markdown-editor :editor="articleForm.editor" class="me-write-editor"></markdown-editor>
         </el-main>
@@ -92,7 +102,7 @@
         publishVisible: false,
         categorys: [],
         tags: [],
-        articleForm: {
+          articleForm: {
           id: '',
           title: '',
           summary: '',
@@ -144,7 +154,7 @@
     },
     computed: {
       title (){
-        return '写文章 - For Fun'
+        return '写文章'
       }
     },
     methods: {
@@ -310,7 +320,7 @@
   }
 
   .me-write-box {
-    max-width: 700px;
+    max-width: 2000px;
     margin: 80px auto 0;
   }
 
