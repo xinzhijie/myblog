@@ -1,11 +1,12 @@
+import Cookies from 'js-cookie'
+const TokenKey = 'ESP-TOKEN'
+
 export function getToken() {
-  return localStorage.token
+  return Cookies.get(TokenKey)
 }
 
 export function setToken(token) {
-  return localStorage.token = token
+  return Cookies.set(TokenKey, token)
 }
-
 export function removeToken() {
-  return localStorage.removeItem('token')
 }
