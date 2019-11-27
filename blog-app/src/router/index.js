@@ -80,11 +80,9 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-
   if (getToken()) {
-
     if (to.path === '/login') {
-      next({path: '/'})
+      next()
     } else {
       if (store.state.account.length === 0) {
         store.dispatch('getUserInfo').then(data => { //获取用户信息

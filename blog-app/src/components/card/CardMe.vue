@@ -1,8 +1,8 @@
 <template>
   <el-card>
-    <h1 class="me-author-name">shimh</h1>
+    <h1 class="me-author-name">limc</h1>
     <div class="me-author-description">
-      <span><i class="el-icon-location-outline"></i> &nbsp;山东&济南</span>
+      <span><i class="el-icon-location-outline"></i> &nbsp;哈尔滨</span>
       <span><i class="me-icon-job"></i> &nbsp;java开发工程师</span>
     </div>
     <div class="me-author-tool">
@@ -18,10 +18,10 @@
     name: 'CardMe',
     data() {
       return {
-        qq: {title: 'QQ', message: '919431514'},
+        qq: {title: 'QQ', message: '84222630'},
         github: {
           title: 'github',
-          message: '<a target="_blank" href="https://github.com/shimh-develop">https://github.com/shimh-develop</a>'
+          message: '<a target="_blank" href="https://github.com/shimh-develop">https://github.com/xinzhijie</a>'
         }
       }
     },

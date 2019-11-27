@@ -82,7 +82,7 @@
       logout() {
         let that = this
         this.$store.dispatch('logout').then(() => {
-          this.$router.push({path: '/'})
+          this.$router.push({path: '/login'})
         }).catch((error) => {
           if (error !== 'error') {
             that.$message({message: error, type: 'error', showClose: true});
