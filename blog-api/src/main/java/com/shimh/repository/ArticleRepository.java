@@ -23,6 +23,9 @@ public interface ArticleRepository extends JpaRepository<Article, Integer>, Arti
 
     List<Article> findByCategory(Category category);
 
+    @Query(value = "select * from me_article where title like %:title% order by view_counts desc limit :page,:limit", nativeQuery = true)
+    List<Article> listBytitle(@Param("page") int page, @Param("limit") int limit, @Param("title") String title);
+
     @Query(value = "select * from me_article order by view_counts desc limit :limit", nativeQuery = true)
     List<Article> findOrderByViewsAndLimit(@Param("limit") int limit);
 

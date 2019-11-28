@@ -3,6 +3,7 @@ package com.shimh.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import com.shimh.common.util.StringUtils;
 import com.shimh.vo.ArticleVo;
 import com.shimh.vo.PageVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,10 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public List<Article> listArticles(ArticleVo article, PageVo page) {
 
-        return articleRepository.listArticles(article, page);
+        if (StringUtils.isEmpty(article.getTitle())) {
+            return articleRepository.listArticles(article, page);
+        }
+        return articleRepository.listBytitle((page.getPageNumber() -1) * page.getPageSize(), page.getPageSize(),article.getTitle());
     }
 
     @Override

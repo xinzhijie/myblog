@@ -13,7 +13,8 @@ export function getArticles(query, page) {
       year: query.year,
       month: query.month,
       tagId: query.tagId,
-      categoryId: query.categoryId
+      categoryId: query.categoryId,
+      title: query.title
     }
   })
 }

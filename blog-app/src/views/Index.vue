@@ -1,10 +1,9 @@
 <template>
   <div v-title data-title="欢迎欢迎">
     <el-container>
-
       <el-main class="me-articles">
-
-        <article-scroll-page></article-scroll-page>
+        <el-input v-model="query.title" style="margin-bottom: 10px" clearable placeholder="请输入内容" />
+        <article-scroll-page :query="query"></article-scroll-page>
 
       </el-main>
 
@@ -49,7 +48,10 @@
         hotTags: [],
         hotArticles: [],
         newArticles: [],
-        archives: []
+        archives: [],
+        query: {
+          title: ''
+        }
       }
     },
     methods: {
