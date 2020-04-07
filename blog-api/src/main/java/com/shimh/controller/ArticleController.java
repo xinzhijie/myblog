@@ -150,21 +150,25 @@ public class ArticleController {
     @GetMapping("/uploadArticle/{id}")
     public Result uploadArticle(@PathVariable Integer id) throws Exception {
         Article article = articleService.getArticleById(id);
-
+        article.setGithub(1);
+        articleService.updateArticle(article);
         CreateFile createFile = new CreateFile();
-        createFile.created(article.getTitle()+".md", article.getBody().getContent());
+        String str = "---\n" +
+                "date: 2018-11-20 14:18:39\n" +
+                "---\n";
+        createFile.created(article.getTitle()+".md", str + article.getBody().getContent());
         log.info("创建文件成功");
         Process process;
         process = Runtime.getRuntime().exec(new String[] {"/bin/sh","-c","/home/ubuntu/workspace/myblob/gitpush.sh"});
-        InputStream is = process.getInputStream();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuilder st = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            st.append(line + "\n");
-        }
-
-        log.info(st.toString());
+//        InputStream is = process.getInputStream();
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+//        StringBuilder st = new StringBuilder();
+//        String line;
+//        while ((line = reader.readLine()) != null) {
+//            st.append(line + "\n");
+//        }
+//
+//        log.info(st.toString());
         process.waitFor();
         return Result.success();
     }

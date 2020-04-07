@@ -80,6 +80,9 @@ public class Article extends BaseEntity<Integer> {
     @Column(name = "view_counts")
     private int viewCounts;
 
+    @Column(name = "github")
+    private Integer github;
+
     /**
      * 置顶
      */
@@ -204,5 +207,11 @@ public class Article extends BaseEntity<Integer> {
         this.createDate = createDate;
     }
 
+    public Integer getGithub() {
+        return github;
+    }
 
+    public void setGithub(Integer github) {
+        this.github = github;
+    }
 }

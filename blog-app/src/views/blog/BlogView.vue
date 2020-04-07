@@ -33,7 +33,7 @@
               round
               icon="el-icon-edit">编辑</el-button>
             <el-button
-              v-if="this.article.author.id == this.$store.state.id"
+              v-if="this.article.author.id == this.$store.state.id && this.article.github !== 1"
               @click="uploadArticle()"
               style="position: absolute;left: 60%;"
               size="mini"
@@ -180,7 +180,9 @@
       },
       uploadArticle() {
         uploadArticle(this.article.id).then(item => {
-          alert(item)
+          this.article.github = 1
+          this.$forceUpdate()
+          this.$message({type: 'success', message: '上传成功', showClose: true})
         })
       },
       getArticle() {
