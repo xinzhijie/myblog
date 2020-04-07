@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import com.shimh.common.annotation.LogAnnotation;
@@ -153,8 +155,12 @@ public class ArticleController {
         article.setGithub(1);
         articleService.updateArticle(article);
         CreateFile createFile = new CreateFile();
+
+        DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        String strDate2 = dtf2.format(LocalDateTime.now());
         String str = "---\n" +
-                "date: 2018-11-20 14:18:39\n" +
+                "date: " + strDate2 + "\n" +
                 "---\n";
         createFile.created(article.getTitle()+".md", str + article.getBody().getContent());
         log.info("创建文件成功");
